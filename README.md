@@ -17,7 +17,7 @@
 - **编辑器**：菜单 `Window → DialogueSystem → 对话图编辑器`，左侧 GraphView 拖拽布局与连线，右侧 Odin 编辑节点字段；节点颜色区分类型（对话黑、分支橙、选项蓝、结束白）；布局写入节点 `GraphPosition` / `GraphSize`，下次打开自动恢复。
 - **运行时 UI**：`DialogueWindow` 订阅 `DialogueRefresh` / `OptionRefresh`，从 `DialogueDataMgr` 刷新文案与动态生成 `DialogueOption` 预制体。
 
-![image](https://github.com/YukiJudai20/UnityDialogueSystem/blob/main/对话图资产.png)
+![image](https://github.com/YukiJudai20/UnityDialogueSystem/blob/main/对话SO.png)
 ![image](https://github.com/YukiJudai20/UnityDialogueSystem/blob/main/对话编辑窗口.png)
 
 ------
