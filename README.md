@@ -43,7 +43,7 @@ Assets/
 ├── Resources/
 │   ├── DialogueWindow.prefab
 │   ├── DialogueOption.prefab
-│   └── DialogueGraph.asset    # 示例图（可按需替换）
+│   └── DialogueGraph.asset    # 示例图
 └── ZMPackages/                # ZMUI、ZMGC、Odin 等
 ```
 
@@ -81,6 +81,5 @@ DialogueManager.Instance.StartDialogue(dialogueGraphAsset, onDialogueEnded: () =
 ## 设计说明（简要）
 
 - **表现与逻辑分离**：节点 `OnEnter` 写入 `DialogueDataMgr` 并派发 UI 事件；窗口只负责展示与输入，不承载业务规则。
-- **单窗口对话 + 选项**：选项节点不再单独弹窗，与对话共用 `DialogueWindow`，由 `ChoiceTexts` / `ChoiceTargetIds` 驱动动态选项。
 
 ------
