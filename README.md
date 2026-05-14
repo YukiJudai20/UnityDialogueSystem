@@ -2,7 +2,7 @@
 
 基于 **ScriptableObject + GraphView** 的轻量对话方案：在编辑器里用可视化节点编排流程，运行时由 `DialogueManager` 驱动，UI 通过数据层与事件刷新，适合快速接入任务、商店、剧情等交互。
 
-**Unity 版本：** 2022.3 LTS（当前工程为 `2022.3.62f3c1`）
+**Unity 版本：** 2022.3.62f3c1 LTS
 
 ------
 
