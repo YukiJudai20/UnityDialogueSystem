@@ -78,5 +78,5 @@ DialogueManager.Instance.StartDialogue(dialogueGraphAsset, onDialogueEnded: () =
 
 - **数据层** `DialogueDataMgr`（命名空间 `ZMGC.Game`）：当前节点、对白正文、说话人、选项列表、分支键、`NextNodeId` / `CanClickToContinue` 等。
 - **逻辑层** `DialogueLogicCtrl`：对话节点进入时可扩展 `OnDialogueNodeEnter` 等业务（音效、任务、日志等）。
-- - **表现与逻辑分离**：节点 `OnEnter` 写入 `DialogueDataMgr` 并派发 UI 事件；窗口只负责展示与输入，不承载业务规则。
+- **表现与逻辑分离**：节点 `OnEnter` 写入 `DialogueDataMgr` 并派发 UI 事件；窗口只负责展示与输入，不承载业务规则。
 ------
