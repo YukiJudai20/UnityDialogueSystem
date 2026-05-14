@@ -28,8 +28,6 @@
 | **Odin Inspector**（`Assets/ZMPackages/Library/Sirenix`） | 对话图 Inspector 与编辑器内嵌属性面板                        |
 | **UGUI**                                                  | 对话窗口与选项条目使用 `UnityEngine.UI.Text` / `Button`      |
 
-工程内还包含 **ZMAsset**、**HallWorld** 等与示例入口 `Main` 相关的代码；对话核心脚本位于 `Assets/Scripts/Dialogue` 与 `Assets/Scripts/GameWorld`。
-
 ------
 
 ## 目录结构（核心）
