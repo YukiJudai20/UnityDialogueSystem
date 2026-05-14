@@ -18,7 +18,7 @@
 - **运行时 UI**：`DialogueWindow` 订阅 `DialogueRefresh` / `OptionRefresh`，从 `DialogueDataMgr` 刷新文案与动态生成 `DialogueOption` 预制体。
 
 ![image](https://github.com/YukiJudai20/UnityDialogueSystem/blob/main/对话图资产.png)
-![image](https://github.com/YukiJudai20/UnityDialogueSystem/blob/main/对话编辑器窗口.png)
+![image](https://github.com/YukiJudai20/UnityDialogueSystem/blob/main/对话编辑窗口.png)
 
 ------
 
