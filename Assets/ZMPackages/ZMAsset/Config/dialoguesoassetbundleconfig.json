@@ -1,0 +1,31 @@
+{
+  "bundleInfoList": [
+    {
+      "path": "Assets/GameData/DialogueSO/DialogueGraph.asset",
+      "crc": 3648846460,
+      "bundleName": "dialogueso_dialogueso.uab",
+      "assetName": "DialogueGraph.asset",
+      "bundleModule": "DialogueSO",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/DialogueSO/Data/ABData/patchinfo.txt",
+      "crc": 1392124520,
+      "bundleName": "dialogueso_dialogueso.uab",
+      "assetName": "patchinfo.txt",
+      "bundleModule": "DialogueSO",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets//ZMPackages/ZMAsset/Config/dialoguesoassetbundleconfig.json",
+      "crc": 1362465719,
+      "bundleName": "dialoguesobundleconfig.uab",
+      "assetName": "dialoguesoassetbundleconfig.json",
+      "bundleModule": "DialogueSO",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    }
+  ]
+}

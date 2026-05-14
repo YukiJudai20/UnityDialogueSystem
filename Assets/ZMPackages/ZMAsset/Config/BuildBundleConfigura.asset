@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecbe8e28d5930e6469e6bfe476c18b7e, type: 3}
+  m_Name: BuildBundleConfigura
+  m_EditorClassIdentifier: 
+  AssetBundleConfig:
+  - bundleid: 0
+    moduleName: Window
+    isAddressableAsset: 0
+    isBuild: 0
+    isAddModule: 0
+    lastClickBtnTime: 71.256004
+    prefabPathArr:
+    - Assets/GameData/Window
+    rootFolderPathArr: []
+    signFolderPathArr: []
+    sourceFolderPathArr: []
+  - bundleid: 0
+    moduleName: Common
+    isAddressableAsset: 0
+    isBuild: 0
+    isAddModule: 0
+    lastClickBtnTime: 0
+    prefabPathArr:
+    - Assets/GameData/Common
+    rootFolderPathArr: []
+    signFolderPathArr: []
+    sourceFolderPathArr: []
+  - bundleid: 0
+    moduleName: DialogueSO
+    isAddressableAsset: 0
+    isBuild: 0
+    isAddModule: 0
+    lastClickBtnTime: 11427.3955
+    prefabPathArr:
+    - Path...
+    rootFolderPathArr: []
+    signFolderPathArr:
+    - abName: DialogueSO
+      bundlePath: Assets/GameData/DialogueSO
+    sourceFolderPathArr: []

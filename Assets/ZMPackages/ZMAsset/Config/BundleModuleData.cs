@@ -1,0 +1,61 @@
+﻿/*---------------------------------------------------------------------------------------------------------------------------------------------
+*
+* Title: ZMAsset
+*
+* Description: 可视化多模块打包器、多模块热更、多线程下载、多版本热更、多版本回退、加密、解密、内嵌、解压、内存引用计数、大型对象池、AssetBundle加载、Editor加载
+*
+* Author: ZM
+*
+* Date: 2023.4.13
+*
+* Modify: 
+------------------------------------------------------------------------------------------------------------------------------------------------*/
+using Sirenix.OdinInspector;
+using System.Collections;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using UnityEngine;
+
+[System.Serializable]
+public class BundleModuleData  
+{
+    //AssetBundle模块id
+    public long bundleid;
+    //模块名称
+    public string moduleName;
+    //是否寻址资源
+    public bool isAddressableAsset;
+    //是否打包
+    public bool isBuild;
+   
+#if UNITY_EDITOR
+    //是否添加模块按钮
+    [JsonIgnore]
+    public bool isAddModule;
+#endif
+    
+    //上一次点击按钮的时间
+    public float lastClickBtnTime;
+
+
+ 
+    public string[] prefabPathArr ;
+
+
+    public string[] rootFolderPathArr;
+
+    public BundleFileInfo[] signFolderPathArr;
+    
+    public string[] sourceFolderPathArr;
+}
+[System.Serializable]
+public class BundleFileInfo
+{
+
+    [HideLabel]
+    public string abName="AB Name";
+
+    [HideLabel]
+    [FolderPath]
+    public string bundlePath="BundlePath...";
+}

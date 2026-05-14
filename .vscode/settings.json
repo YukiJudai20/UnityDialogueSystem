@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/Library": true,
+        "**/Temp": true,
+        "**/obj": true,
+        "**/Assets/StreamingAssets": true,
+        "**/*.meta": true
+    },
+    "dotnet.defaultSolution": "DialogueSystem.sln"
+}

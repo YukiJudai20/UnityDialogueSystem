@@ -1,0 +1,75 @@
+/* 画布网格（挂在 GraphView 内的 GridBackground 上） */
+GridBackground.dg-graph-grid {
+    --grid-background-color: rgba(55, 58, 68, 0.92);
+    --line-color: rgba(255, 255, 255, 0.06);
+    --thick-line-color: rgba(255, 255, 255, 0.11);
+    --spacing: 16;
+}
+
+/* 节点背后浅网格（叠在整颗节点最底层） */
+.dg-node-root-grid {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.02);
+    background-image: repeating-linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0) 11px,
+            rgba(255, 255, 255, 0.05) 11px,
+            rgba(255, 255, 255, 0.05) 12px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0) 11px,
+            rgba(255, 255, 255, 0.05) 11px,
+            rgba(255, 255, 255, 0.05) 12px
+        );
+}
+
+.dg-node-kind-dialogue #title {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+
+.dg-node-kind-dialogue #title Label,
+.dg-node-kind-dialogue #title .unity-text-element {
+    color: rgb(245, 245, 250);
+    font-size: 15px;
+}
+
+.dg-node-kind-branch #title {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+
+.dg-node-kind-branch #title Label,
+.dg-node-kind-branch #title .unity-text-element {
+    color: rgb(30, 30, 30);
+    font-size: 15px;
+}
+
+.dg-node-kind-popup #title {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+
+.dg-node-kind-popup #title Label,
+.dg-node-kind-popup #title .unity-text-element {
+    color: rgb(248, 248, 255);
+    font-size: 15px;
+}
+
+.dg-node-kind-end #title {
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(0, 0, 0, 0.35);
+}
+
+.dg-node-kind-end #title Label,
+.dg-node-kind-end #title .unity-text-element {
+    color: rgb(30, 30, 30);
+    font-size: 15px;
+}

@@ -1,0 +1,67 @@
+.dg-root {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.dg-toolbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6px 8px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(26, 26, 28);
+    background-color: rgb(60, 60, 60);
+}
+
+.dg-toolbar > #graph-object {
+    min-width: 220px;
+    margin-right: 8px;
+}
+
+.dg-toolbar-btn {
+    margin-right: 6px;
+}
+
+.dg-hint {
+    flex-grow: 1;
+    margin-left: 8px;
+    font-size: 14px;
+    color: rgb(180, 180, 185);
+    white-space: normal;
+}
+
+.dg-main-split {
+    flex-grow: 1;
+    flex-direction: row;
+    min-height: 200px;
+}
+
+/* 左侧图约 2/3、右侧 Odin 约 1/3（flex-grow 2 : 1） */
+.dg-graph-host {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 200px;
+    background-color: rgb(40, 40, 42);
+}
+
+/* GraphView 内节点标题、端口、边等标签统一略放大 */
+.dg-graph-host GraphView Label,
+.dg-graph-host GraphView .unity-text-element {
+    font-size: 14px;
+}
+
+.dg-toolbar Button,
+.dg-toolbar ObjectField .unity-base-field__label {
+    font-size: 14px;
+}
+
+.dg-inspector {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 200px;
+    border-left-width: 1px;
+    border-left-color: rgb(26, 26, 28);
+    background-color: rgb(56, 56, 58);
+}

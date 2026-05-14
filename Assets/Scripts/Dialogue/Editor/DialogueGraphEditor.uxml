@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="root" class="dg-root">
+        <ui:VisualElement class="dg-toolbar">
+            <uie:ObjectField name="graph-object" label="对话图" allow-scene-objects="false" />
+            <ui:Button name="btn-new" text="新建资源" class="dg-toolbar-btn" />
+            <ui:Button name="btn-add-node" text="添加对话节点" class="dg-toolbar-btn" />
+            <ui:Button name="btn-add-branch" text="添加分支节点" class="dg-toolbar-btn" />
+            <ui:Button name="btn-add-option" text="添加选项节点" class="dg-toolbar-btn" />
+            <ui:Button name="btn-add-end" text="添加结束节点" class="dg-toolbar-btn" />
+            <ui:Button name="btn-refresh" text="刷新视图" class="dg-toolbar-btn" />
+            <ui:Label name="hint" text="「对话」仅单出口连下一节点；多选请用「选项」节点。「结束」无出口。右键画布可添加节点。Delete 删除选中。" class="dg-hint" />
+        </ui:VisualElement>
+        <ui:VisualElement name="main-split" class="dg-main-split">
+            <ui:VisualElement name="graph-host" class="dg-graph-host" />
+            <ui:IMGUIContainer name="inspector-imgui" class="dg-inspector" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

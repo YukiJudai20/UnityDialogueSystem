@@ -1,0 +1,22 @@
+{
+  "bundleInfoList": [
+    {
+      "path": "Assets/GameData/Common/DialogueOption.prefab",
+      "crc": 2673445029,
+      "bundleName": "common_dialogueoption.uab",
+      "assetName": "DialogueOption.prefab",
+      "bundleModule": "Common",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets//ZMPackages/ZMAsset/Config/commonassetbundleconfig.json",
+      "crc": 2433796339,
+      "bundleName": "commonbundleconfig.uab",
+      "assetName": "commonassetbundleconfig.json",
+      "bundleModule": "Common",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    }
+  ]
+}

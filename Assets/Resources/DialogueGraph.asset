@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c7ca8d60fc04db42988bc1a479865d0, type: 3}
+  m_Name: DialogueGraph
+  m_EditorClassIdentifier: 
+  EntryNodeId: 004a362988e44cde8d1a9c1ecac9800a
+  Nodes:
+  - rid: 2407059958192668675
+  - rid: 2407059958192668676
+  - rid: 2407059958192668677
+  - rid: 2407059958192668678
+  - rid: 2407059958192668679
+  - rid: 2407059958192668680
+  - rid: 2407059958192668681
+  - rid: 2407059958192668682
+  - rid: 2407059958192668683
+  - rid: 2407059958192668684
+  - rid: 2407059973657067520
+  references:
+    version: 2
+    RefIds:
+    - rid: 2407059958192668675
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: 004a362988e44cde8d1a9c1ecac9800a
+        GraphPosition: {x: 90, y: 172.66666}
+        GraphSize: {x: 215.33334, y: 78.66666}
+        Title: "\u5BF9\u8BDD"
+        Speaker: 1
+        Body: "\u4F60\u597D\u3002"
+        NextNodeId: 262e9b181a3e4bb89f6e88c11ce561f9
+    - rid: 2407059958192668676
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: 262e9b181a3e4bb89f6e88c11ce561f9
+        GraphPosition: {x: 340, y: 172.66666}
+        GraphSize: {x: 215.33331, y: 78.66666}
+        Title: "\u65B0\u8282\u70B9"
+        Speaker: 1
+        Body: "\u8BF7\u95EE\u4F60\u8FD9\u91CC\u5356\u4EC0\u4E48\u4E1C\u897F\uFF1F"
+        NextNodeId: 8dba674f43b74a47bdce88e5c23cf4b3
+    - rid: 2407059958192668677
+      type: {class: BranchNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: 8dba674f43b74a47bdce88e5c23cf4b3
+        GraphPosition: {x: 580, y: 172.66666}
+        GraphSize: {x: 215.33331, y: 126.66666}
+        Title: "\u5206\u652F"
+        BranchRoutes:
+        - ConditionKey: a
+          Label: "\u6761\u4EF6 A"
+          Description: 
+          TargetNodeId: 60258f0a67134d81969e892c36c0051b
+        - ConditionKey: b
+          Label: "\u6761\u4EF6B"
+          Description: 
+          TargetNodeId: ef480cc2692f484995d904d55191f4ea
+        - ConditionKey: c
+          Label: "\u6761\u4EF6C"
+          Description: 
+          TargetNodeId: e6bbd022ee794d62a9ee7d8046fc887c
+    - rid: 2407059958192668678
+      type: {class: OptionNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: 60258f0a67134d81969e892c36c0051b
+        GraphPosition: {x: 811.3333, y: 2}
+        GraphSize: {x: 215.33331, y: 102.666664}
+        Title: "\u9009\u9879"
+        PopupMessage: "\u8BF7\u9009\u62E9\uFF1A"
+        Choices:
+        - ChoiceText: "\u6211\u60F3\u8981\u4E00\u628A\u5200"
+          TargetNodeId: b48e7e7d5ed34e5eba7920bd24e0f043
+        - ChoiceText: "\u6211\u60F3\u8981\u4E00\u628A\u5251"
+          TargetNodeId: 02c0289938b94352ab166528d7aa5c9f
+    - rid: 2407059958192668679
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: ef480cc2692f484995d904d55191f4ea
+        GraphPosition: {x: 835.3333, y: 186}
+        GraphSize: {x: 215.33331, y: 78.66666}
+        Title: "\u65B0\u8282\u70B9"
+        Speaker: 0
+        Body: "\u6211\u4E0D\u4F1A\u5356\u4E1C\u897F\u7ED9\u4F60\u7684\u3002"
+        NextNodeId: 9f6c4c8b209246d888fdec27c9efa06f
+    - rid: 2407059958192668680
+      type: {class: EndNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: e6bbd022ee794d62a9ee7d8046fc887c
+        GraphPosition: {x: 893.3333, y: 329.3333}
+        GraphSize: {x: 215.33331, y: 78.66669}
+        Title: "\u7ED3\u675F"
+    - rid: 2407059958192668681
+      type: {class: EndNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: a3ee797d840f43bbbc38733330be5916
+        GraphPosition: {x: 1378, y: -102.66667}
+        GraphSize: {x: 215.33337, y: 78.666664}
+        Title: "\u7ED3\u675F"
+    - rid: 2407059958192668682
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: 02c0289938b94352ab166528d7aa5c9f
+        GraphPosition: {x: 1055.3334, y: 85.99999}
+        GraphSize: {x: 215.33325, y: 78.66667}
+        Title: "\u65B0\u8282\u70B9"
+        Speaker: 0
+        Body: "\u6211\u8FD9\u91CC\u521A\u597D\u6709\u4E00\u628A\u5251\u3002"
+        NextNodeId: 68bf34978f5248309b95aea2551f86d5
+    - rid: 2407059958192668683
+      type: {class: EndNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: 68bf34978f5248309b95aea2551f86d5
+        GraphPosition: {x: 1378, y: 85.99999}
+        GraphSize: {x: 215.33337, y: 78.66667}
+        Title: "\u7ED3\u675F"
+    - rid: 2407059958192668684
+      type: {class: EndNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: 9f6c4c8b209246d888fdec27c9efa06f
+        GraphPosition: {x: 1164, y: 186}
+        GraphSize: {x: 215.33337, y: 78.66666}
+        Title: "\u7ED3\u675F"
+    - rid: 2407059973657067520
+      type: {class: DialogueNode, ns: , asm: Assembly-CSharp}
+      data:
+        Id: b48e7e7d5ed34e5eba7920bd24e0f043
+        GraphPosition: {x: 1056, y: -102.66667}
+        GraphSize: {x: 215.33337, y: 78.666664}
+        Title: "\u5BF9\u8BDD"
+        Speaker: 0
+        Body: "\u6211\u8FD9\u91CC\u6CA1\u6709\u5200\u3002"
+        NextNodeId: a3ee797d840f43bbbc38733330be5916

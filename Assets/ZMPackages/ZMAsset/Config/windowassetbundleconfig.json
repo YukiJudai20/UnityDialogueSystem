@@ -1,0 +1,51 @@
+{
+  "bundleInfoList": [
+    {
+      "path": "Assets/GameData/Window/BaseWindow.prefab",
+      "crc": 2739558974,
+      "bundleName": "window_basewindow.uab",
+      "assetName": "BaseWindow.prefab",
+      "bundleModule": "Window",
+      "isAddressableAsset": false,
+      "bundleDependce": [
+        "window_basewindow.uab"
+      ]
+    },
+    {
+      "path": "Assets/ZMPackages/ZMUI/Example/Textures/BG/StartBG.jpg",
+      "crc": 344064709,
+      "bundleName": "window_basewindow.uab",
+      "assetName": "StartBG.jpg",
+      "bundleModule": "Window",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Window/DialogueWindow.prefab",
+      "crc": 2046930460,
+      "bundleName": "window_dialoguewindow.uab",
+      "assetName": "DialogueWindow.prefab",
+      "bundleModule": "Window",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Window/OptionWindow.prefab",
+      "crc": 963402014,
+      "bundleName": "window_optionwindow.uab",
+      "assetName": "OptionWindow.prefab",
+      "bundleModule": "Window",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets//ZMPackages/ZMAsset/Config/windowassetbundleconfig.json",
+      "crc": 3517870447,
+      "bundleName": "windowbundleconfig.uab",
+      "assetName": "windowassetbundleconfig.json",
+      "bundleModule": "Window",
+      "isAddressableAsset": false,
+      "bundleDependce": []
+    }
+  ]
+}
