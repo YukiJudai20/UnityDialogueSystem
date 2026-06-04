@@ -98,6 +98,12 @@ public class DialogueManager : MonoSingleton<DialogueManager>
         if (!data.CanClickToContinue)
             return;
 
+        if (data.TryAdvanceToNextDialogueSegment())
+        {
+            UIEventControl.DispensEvent(UIEventEnum.DialogueRefresh);
+            return;
+        }
+
         if (string.IsNullOrEmpty(data.NextNodeId))
         {
             Debug.Log("DialogueManager.Continue: no next node.");
@@ -105,6 +111,54 @@ public class DialogueManager : MonoSingleton<DialogueManager>
         }
 
         EnterNode(data.NextNodeId);
+    }
+
+    /// <summary>
+    /// 由对话窗口在玩家点击第 <paramref name="choiceIndex"/> 条选项时调用：先派发选项上的逻辑事件，再 <see cref="EnterNode"/>。
+    /// </summary>
+    public void PickOption(int choiceIndex)
+    {
+        if (mCurrentGraph == null)
+        {
+            Debug.LogError("DialogueManager.PickOption: no active graph.");
+            return;
+        }
+
+        var data = GameWorld.GetDataLayer<DialogueDataMgr>();
+        var nodeId = data != null ? data.CurrentNodeId : string.Empty;
+        if (string.IsNullOrEmpty(nodeId))
+        {
+            Debug.LogWarning("DialogueManager.PickOption: CurrentNodeId is empty.");
+            return;
+        }
+
+        if (mCurrentGraph.FindNode(nodeId) is not OptionNode optionNode)
+        {
+            Debug.LogWarning("DialogueManager.PickOption: current node is not an OptionNode.");
+            return;
+        }
+
+        var choices = optionNode.Choices;
+        if (choices == null || choiceIndex < 0 || choiceIndex >= choices.Count)
+        {
+            Debug.LogWarning($"DialogueManager.PickOption: invalid index {choiceIndex}.");
+            return;
+        }
+
+        var choice = choices[choiceIndex];
+        var target = choice?.TargetNodeId ?? string.Empty;
+
+        var logic = GameWorld.GetLogicLayer<DialogueLogicCtrl>();
+        if (choice != null && !string.IsNullOrEmpty(choice.LogicEventId))
+            logic?.OnDialogueChoiceEvent(choice.LogicEventId, optionNode, choiceIndex, choice);
+
+        if (string.IsNullOrEmpty(target))
+        {
+            Debug.LogWarning("DialogueManager.PickOption: choice has no target node.");
+            return;
+        }
+
+        EnterNode(target);
     }
 
     /// <summary>

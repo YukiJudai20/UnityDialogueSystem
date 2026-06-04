@@ -1,0 +1,62 @@
+.se-root {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.se-toolbar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 6px 8px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(26, 26, 28);
+    background-color: rgb(60, 60, 60);
+}
+
+.se-toolbar > #skill-object {
+    min-width: 240px;
+    margin-right: 8px;
+}
+
+.se-toolbar-btn {
+    margin-right: 6px;
+}
+
+.se-zoom-slider {
+    min-width: 160px;
+    margin-right: 8px;
+}
+
+.se-hint {
+    flex-grow: 1;
+    margin-left: 8px;
+    font-size: 12px;
+    color: rgb(180, 180, 185);
+    white-space: normal;
+}
+
+.se-main-split {
+    flex-grow: 1;
+    flex-direction: row;
+    min-height: 200px;
+}
+
+.se-timeline-host {
+    flex-grow: 4;
+    flex-shrink: 1;
+    flex-basis: 0;
+    min-width: 400px;
+    background-color: rgb(40, 40, 42);
+}
+
+.se-inspector {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 380px;
+    width: 380px;
+    max-width: 420px;
+    min-width: 320px;
+    border-left-width: 1px;
+    border-left-color: rgb(26, 26, 28);
+    background-color: rgb(56, 56, 58);
+}

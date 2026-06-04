@@ -21,6 +21,7 @@ namespace MyGame.Dialogue.Editor
 
         private readonly DialogueGraphAsset _owner;
         private VisualElement _rootGridLayer;
+        private Label _bodyPreviewLabel;
 
         public DialogueNodeView(DialogueGraphAsset owner, DialogueNodeBase data)
         {
@@ -35,6 +36,7 @@ namespace MyGame.Dialogue.Editor
             EnsureRootGridLayer();
             RebuildChoicePorts();
             ApplyKindVisuals();
+            RefreshBodyPreview();
 
             RegisterCallback<MouseUpEvent>(_ => PersistLayoutIfChanged());
             RegisterCallback<PointerCaptureOutEvent>(_ => PersistLayoutIfChanged());
@@ -66,6 +68,41 @@ namespace MyGame.Dialogue.Editor
             _rootGridLayer.style.right = 0;
             _rootGridLayer.style.bottom = 0;
             Insert(0, _rootGridLayer);
+        }
+
+        /// <summary>
+        /// 普通对话节点在 GraphView 上同步显示正文预览（Inspector 修改后由编辑器刷新调用）。
+        /// </summary>
+        public void RefreshBodyPreview()
+        {
+            if (Data.Kind != DialogueNodeKind.Dialogue)
+            {
+                if (_bodyPreviewLabel != null)
+                    _bodyPreviewLabel.style.display = DisplayStyle.None;
+                return;
+            }
+
+            EnsureBodyPreviewLabel();
+            var dn = (DialogueNode)Data;
+            var t = dn.Body?.Trim() ?? string.Empty;
+            if (string.IsNullOrEmpty(t))
+                t = "（正文为空）";
+            else if (t.Length > 280)
+                t = t.Substring(0, 277) + "…";
+            _bodyPreviewLabel.text = t;
+            _bodyPreviewLabel.style.display = DisplayStyle.Flex;
+        }
+
+        private void EnsureBodyPreviewLabel()
+        {
+            if (_bodyPreviewLabel != null)
+                return;
+            _bodyPreviewLabel = new Label { name = "dg-dialogue-body-preview", pickingMode = PickingMode.Ignore };
+            _bodyPreviewLabel.AddToClassList("dg-dialogue-body-preview");
+            _bodyPreviewLabel.style.whiteSpace = WhiteSpace.Normal;
+            _bodyPreviewLabel.style.maxHeight = 140f;
+            _bodyPreviewLabel.style.fontSize = 12;
+            mainContainer.Insert(0, _bodyPreviewLabel);
         }
 
         private void PersistLayoutIfChanged()
@@ -212,6 +249,7 @@ namespace MyGame.Dialogue.Editor
             }
 
             ApplyKindVisuals();
+            RefreshBodyPreview();
         }
 
         private static void ApplyTitleTextColorRecursive(VisualElement root, Color color)

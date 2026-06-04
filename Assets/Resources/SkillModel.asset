@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3396faebd722a094b81824aeeca66b96, type: 3}
+  m_Name: SkillModel
+  m_EditorClassIdentifier: 
+  SkillId: 1
+  SkillName: "\u65B0\u6280\u80FD"
+  FrameCount: 45
+  Tracks:
+  - rid: 2407060186260570112
+  - rid: 2407060186260570113
+  - rid: 2407060186260570114
+  - rid: 2407060186260570115
+  - rid: 2407060204125421571
+  - rid: 2407060204125421569
+  - rid: 2407060204125421572
+  - rid: 2407060204125421573
+  references:
+    version: 2
+    RefIds:
+    - rid: 2407060186260570112
+      type: {class: SkillAnimationTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: 013f56ff13094b7da2c682a7e7d5a6fb
+        DisplayName: "\u52A8\u753B"
+        Enabled: 1
+        EditorOrder: 0
+        Clips:
+        - StartFrame: 0
+          EndFrame: 2
+          Clip: {fileID: 0}
+          StateName: 
+          Layer: 0
+          CrossFadeDuration: 0
+    - rid: 2407060186260570113
+      type: {class: SkillAudioTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: aefb4aae585447cda7e01d8fcefe4995
+        DisplayName: "\u97F3\u9891"
+        Enabled: 1
+        EditorOrder: 1
+        Clips:
+        - StartFrame: 3
+          EndFrame: 6
+          Clip: {fileID: 0}
+          Volume: 0
+          Loop: 0
+    - rid: 2407060186260570114
+      type: {class: SkillAudioTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: 3bf2380bc9444eb48208416485cff02c
+        DisplayName: "\u97F3\u9891"
+        Enabled: 1
+        EditorOrder: 2
+        Clips:
+        - StartFrame: 0
+          EndFrame: 2
+          Clip: {fileID: 0}
+          Volume: 0
+          Loop: 0
+    - rid: 2407060186260570115
+      type: {class: SkillVfxTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: e297ff7255614985be6dacd416a2b5ac
+        DisplayName: "\u7279\u6548"
+        Enabled: 1
+        EditorOrder: 3
+        Clips:
+        - StartFrame: 3
+          EndFrame: 7
+          Prefab: {fileID: 0}
+          Offset: {x: 0, y: 0, z: 0}
+          LocalEulerAngles: {x: 0, y: 0, z: 0}
+    - rid: 2407060204125421569
+      type: {class: SkillMovementTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: 1bdca08a8dc34f389b4e73002f6b1797
+        DisplayName: "\u4F4D\u79FB"
+        Enabled: 1
+        EditorOrder: 5
+        Clips:
+        - StartFrame: 0
+          EndFrame: 2
+          LocalOffset: {x: 0, y: 0, z: 0}
+          PlanarOnly: 0
+    - rid: 2407060204125421571
+      type: {class: SkillHitboxTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: 4344c92cb5bf4128852bb6a698bff78f
+        DisplayName: "\u78B0\u649E\u4F53"
+        Enabled: 1
+        EditorOrder: 4
+        Clips:
+        - StartFrame: 0
+          EndFrame: 5
+          ColliderType: 0
+          Length: 0
+          Width: 0
+          Height: 0
+          LocalOffset: {x: 1, y: 2, z: 0}
+          LocalEulerAngles: {x: 3, y: 4, z: 0}
+          HitLayers:
+            serializedVersion: 2
+            m_Bits: 0
+        - StartFrame: 6
+          EndFrame: 14
+          ColliderType: 0
+          Length: 0
+          Width: 0
+          Height: 0
+          LocalOffset: {x: 1, y: 2, z: 0}
+          LocalEulerAngles: {x: 3, y: 4, z: 0}
+          HitLayers:
+            serializedVersion: 2
+            m_Bits: 0
+    - rid: 2407060204125421572
+      type: {class: SkillInterruptTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: 0f1c45a468da486e81204c6771878e99
+        DisplayName: "\u6253\u65AD"
+        Enabled: 1
+        EditorOrder: 6
+        Clips:
+        - StartFrame: 3
+          EndFrame: 8
+          Note: 
+    - rid: 2407060204125421573
+      type: {class: SkillEventTrack, ns: , asm: Assembly-CSharp}
+      data:
+        TrackId: b21cd64637b84ed0ae0cd72f5768d7f3
+        DisplayName: "\u4E8B\u4EF6"
+        Enabled: 1
+        EditorOrder: 7
+        Clips:
+        - Frame: 10
+          Signal: 1

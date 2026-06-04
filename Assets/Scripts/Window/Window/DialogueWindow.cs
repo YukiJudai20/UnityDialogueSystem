@@ -77,7 +77,29 @@ namespace ZM.UI
 					break;
 			}
 			dataCompt.DialogueText.text = data.CurrentBody;
+			ApplyBackgroundAndSfx(data);
 			RebuildOptionList(data);
+		}
+
+		private void ApplyBackgroundAndSfx(DialogueDataMgr data)
+		{
+			var img = dataCompt.DialogueBackgroundImage;
+			if (img != null)
+			{
+				if (data.CurrentBackgroundSprite != null)
+				{
+					img.sprite = data.CurrentBackgroundSprite;
+					img.enabled = true;
+				}
+				else
+				{
+					img.sprite = null;
+					img.enabled = false;
+				}
+			}
+
+			if (data.CurrentEnterSfx != null)
+				AudioSource.PlayClipAtPoint(data.CurrentEnterSfx, Vector3.zero);
 		}
 
 		private void RefreshFromDataLayer()
@@ -121,19 +143,14 @@ namespace ZM.UI
 
 				item.OnInitialize();
 				string label = texts[i] ?? string.Empty;
-				string targetId = (targets != null && i < targets.Length) ? targets[i] : string.Empty;
-				item.SetItemData(label, () => OnOptionButtonClicked(targetId));
+				int idx = i;
+				item.SetItemData(label, () => OnOptionButtonClicked(idx));
 			}
 		}
 
-		private void OnOptionButtonClicked(string targetNodeId)
+		private void OnOptionButtonClicked(int choiceIndex)
 		{
-			if (string.IsNullOrEmpty(targetNodeId))
-			{
-				Debug.LogWarning("DialogueWindow: 选项未绑定目标节点。");
-				return;
-			}
-			DialogueManager.Instance?.EnterNode(targetNodeId);
+			DialogueManager.Instance?.PickOption(choiceIndex);
 		}
 
 		private void ClearOptionItems()

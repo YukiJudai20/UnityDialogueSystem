@@ -59,6 +59,10 @@ using ZM.UI;
         [ReadOnly]
         [Tooltip("在节点编辑器中拖拽连线到目标节点即可自动填写。")]
         public string TargetNodeId = string.Empty;
+
+        [LabelText("逻辑事件 ID")]
+        [Tooltip("玩家点选该选项后、进入目标节点之前，由 DialogueLogicCtrl.OnDialogueChoiceEvent 收到；例如 give_item_potion。留空则不派发。")]
+        public string LogicEventId = string.Empty;
     }
 
     /// <summary>
@@ -169,6 +173,7 @@ using ZM.UI;
         [Title("正文")]
         [HideLabel]
         [TextArea(4, 14)]
+        [Tooltip("支持用换行分段：同一句内多次点击「继续」会依次显示每一段，全部播完后再进入「下一节点」。连续空行会被忽略。")]
         public string Body = string.Empty;
 
         [LabelText("下一节点 ID")]
@@ -176,22 +181,39 @@ using ZM.UI;
         [Tooltip("在节点编辑器中从右侧「下一节点」出口拖到目标节点即可自动填写。对话节点仅允许单出口。")]
         public string NextNodeId = string.Empty;
 
+        [Title("表现（可选）")]
+        [LabelText("进入音效")]
+        [Tooltip("进入该节点时在对话界面刷新时播放一次（使用 PlayClipAtPoint）。")]
+        public AudioClip EnterSfx;
+
+        [LabelText("背景图")]
+        [Tooltip("对话窗口背景 Image 使用的 Sprite；不填则隐藏该图（沿用预制里其它装饰）。")]
+        public Sprite BackgroundSprite;
+
+        [Title("逻辑（可选）")]
+        [LabelText("逻辑事件 ID")]
+        [Tooltip("进入本句对白并刷新 UI 之后触发 DialogueLogicCtrl.OnDialogueLineEvent；例如 boss_dialog_done。留空则不派发。")]
+        public string LogicEventId = string.Empty;
+
         public override void OnEnter()
         {
-            // 1. 调用逻辑层自定义操作
+            // 1. 调用逻辑层（进入节点，不依赖事件 ID）
             var logic = GameWorld.GetLogicLayer<DialogueLogicCtrl>();
             logic?.OnDialogueNodeEnter(this);
 
             // 2. 写入数据层
             var data = GameWorld.GetDataLayer<DialogueDataMgr>();
-            data?.SetDialogueData(Body, Speaker);
-            data?.SetContinueFlow(NextNodeId, canClickToContinue: !string.IsNullOrEmpty(NextNodeId));
+            data?.SetDialogueData(Body, Speaker, BackgroundSprite, EnterSfx);
+            data?.SetContinueFlow(NextNodeId);
 
             // 3. 弹出或显示对话窗口（勿用 GetWindow：其仅查可见列表，未显示时会误报错）
             UIModule.Instance.PopUpWindow<DialogueWindow>();
 
             // 4. 派发事件通知 Window 刷新 UI
             UIEventControl.DispensEvent(UIEventEnum.DialogueRefresh);
+
+            if (!string.IsNullOrEmpty(LogicEventId))
+                logic?.OnDialogueLineEvent(LogicEventId, this);
         }
 
         public override int GetOutputPortCount() => 1;
@@ -251,7 +273,8 @@ using ZM.UI;
         {
             string targetNodeId = ResolveTargetNodeId();
             var data = GameWorld.GetDataLayer<DialogueDataMgr>();
-            data?.SetContinueFlow(targetNodeId, canClickToContinue: false);
+            data?.ClearDialogueParagraphState();
+            data?.SetContinueFlow(targetNodeId);
 
             if (!string.IsNullOrEmpty(targetNodeId))
                 DialogueManager.Instance?.EnterNode(targetNodeId);
@@ -335,6 +358,15 @@ using ZM.UI;
             new DialogueChoice { ChoiceText = "选项 B" },
         };
 
+        [Title("表现（可选）")]
+        [LabelText("进入音效")]
+        [Tooltip("进入该节点时在对话界面刷新时播放一次（使用 PlayClipAtPoint）。")]
+        public AudioClip EnterSfx;
+
+        [LabelText("背景图")]
+        [Tooltip("对话窗口背景 Image 使用的 Sprite；不填则隐藏该图。")]
+        public Sprite BackgroundSprite;
+
         public override int GetOutputPortCount() => Choices?.Count ?? 0;
 
         public override string GetOutputTargetId(int portIndex)
@@ -357,9 +389,9 @@ using ZM.UI;
         {
             // 1. 组装选项数据写入数据层
             var data = GameWorld.GetDataLayer<DialogueDataMgr>();
-            if (data != null && Choices != null)
+            if (data != null)
             {
-                int count = Choices.Count;
+                int count = Choices?.Count ?? 0;
                 var texts = new string[count];
                 var targets = new string[count];
                 for (int i = 0; i < count; i++)
@@ -368,9 +400,9 @@ using ZM.UI;
                     texts[i] = c?.ChoiceText ?? string.Empty;
                     targets[i] = c?.TargetNodeId ?? string.Empty;
                 }
-                data.SetOptionData(PopupMessage, texts, targets);
+                data.SetOptionData(PopupMessage, texts, targets, BackgroundSprite, EnterSfx);
             }
-            data?.SetContinueFlow(string.Empty, canClickToContinue: false);
+            data?.SetContinueFlow(string.Empty);
 
             // 2. 与对话节点一致：弹出或显示同一 DialogueWindow（勿用 GetWindow：其仅查可见列表，未显示时会误报错）
             UIModule.Instance.PopUpWindow<DialogueWindow>();
@@ -399,8 +431,17 @@ using ZM.UI;
     {
         public override DialogueNodeKind Kind => DialogueNodeKind.End;
 
+        [Title("逻辑（可选）")]
+        [LabelText("逻辑事件 ID")]
+        [Tooltip("进入结束节点、关闭对话 UI 之前触发 DialogueLogicCtrl.OnDialogueEndEvent；例如 start_boss_fight。留空则不派发。")]
+        public string LogicEventId = string.Empty;
+
         public override void OnEnter()
         {
+            var logic = GameWorld.GetLogicLayer<DialogueLogicCtrl>();
+            if (!string.IsNullOrEmpty(LogicEventId))
+                logic?.OnDialogueEndEvent(LogicEventId, this);
+
             DialogueManager.Instance?.FinishDialogueFromEndNode();
         }
 

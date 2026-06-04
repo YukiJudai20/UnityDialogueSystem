@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:VisualElement name="root" class="se-root">
+        <ui:VisualElement class="se-toolbar">
+            <uie:ObjectField name="skill-object" label="技能" allow-scene-objects="false" />
+            <ui:Button name="btn-play" text="播放技能" class="se-toolbar-btn" />
+            <ui:Button name="btn-pause" text="暂停技能" class="se-toolbar-btn" />
+            <ui:Slider name="zoom-slider" label="缩放" low-value="4" high-value="48" value="48" class="se-zoom-slider" />
+            <ui:Label name="hint" text="轨道列表右键添加轨道；时间轴右键添加片段；滚轮缩放时间轴。点击片段在右侧编辑属性。" class="se-hint" />
+        </ui:VisualElement>
+        <ui:VisualElement name="main-split" class="se-main-split">
+            <ui:VisualElement name="timeline-host" class="se-timeline-host" />
+            <ui:IMGUIContainer name="inspector-imgui" class="se-inspector" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

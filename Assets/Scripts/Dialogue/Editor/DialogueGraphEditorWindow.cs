@@ -172,6 +172,7 @@ namespace MyGame.Dialogue.Editor
             {
                 n.SyncTitleFromData();
                 n.ApplyKindVisuals();
+                n.RefreshBodyPreview();
             }
         }
 

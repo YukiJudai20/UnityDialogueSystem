@@ -19,5 +19,3 @@ MonoBehaviour:
     path: Assets/Resources/DialogueOption
   - name: DialogueWindow
     path: Assets/Resources/DialogueWindow
-  - name: OptionWindow
-    path: Assets/Resources/OptionWindow
